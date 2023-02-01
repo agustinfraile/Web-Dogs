@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import CardDetail from '../CardDetail/CardDetail';
 
-const CardDogs = ({ dogs }) => {
+const CardDogs = ({ currentDogs }) => {
   return (
     <div>
         {
-            dogs && dogs.map(dog => {
+            currentDogs && currentDogs.map(dog => {
                 return (
                     <Link 
-                        to='/'
+                        to={`/dogs/${dog.id}`}
                         key={dog.id}
                     >
                         <CardDetail 
@@ -18,15 +18,17 @@ const CardDogs = ({ dogs }) => {
                             name={dog.name}
                             image={dog.image}
                             temperament={dog.temperament}
+                            temperaments={dog.temperaments}
                             weight={dog.weight}
                             height={dog.height}
+                            createdInDb = {dog.createdInDb}
                         />
                     </Link>
                 )
             })
-        }        
+        };  
     </div>
-  )
-}
+  );
+};
 
 export default CardDogs;

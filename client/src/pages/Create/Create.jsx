@@ -1,8 +1,11 @@
 import React from 'react'
+import CreateDogForm from '../../components/CreateDogForm/CreateDogForm'
 
 const Create = () => {
   return (
-    <div>Create</div>
+    <div>
+      <CreateDogForm />
+    </div>
   )
 }
 
