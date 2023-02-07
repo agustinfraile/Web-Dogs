@@ -25,6 +25,10 @@ const Home = () => {
   const [appliedTemperamentFilters, setAppliedTemperamentFilters] = useState('');
   const [appliedNameFilters, setAppliedNameFilters] = useState('');
 
+  const [selectedTemperament, setSelectedTemperament] = useState("tod");
+  const [selectedName, setSelectedName] = useState("asc");
+
+
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -39,30 +43,42 @@ const Home = () => {
     dispatch( getTemperaments() );
   }, [dispatch]);
 
-  const handleFilteredTemperaments = (e) => {
-    const newFilter = e.target.value;
-    dispatch(filterDogsByTemperament(newFilter));
-    setCurrentFilter(newFilter);
-    setAppliedTemperamentFilters(newFilter);
+  // const handleFilteredTemperaments = (e) => {
+  //   const newFilter = e.target.value;
+  //   dispatch(filterDogsByTemperament(newFilter));
+  //   setCurrentFilter(newFilter);
+  //   setAppliedTemperamentFilters(newFilter);
+  //   setCurrentPage(1);
+  // };
+
+  // const handleFilteredName = (e) => {
+  //   const newFilter = e.target.value;
+  //   setCurrentFilter(newFilter);
+  //   setAppliedNameFilters(newFilter);
+  //   dispatch(filterDogsByName(newFilter));
+  //   setCurrentPage(1);
+  // }
+
+  const handleFilter = () => {
+    dispatch(filterDogsByTemperament(selectedTemperament));
+    dispatch(filterDogsByName(selectedName));
+    setCurrentFilter(selectedTemperament);
+    setAppliedTemperamentFilters(selectedTemperament);
+    setAppliedNameFilters(selectedName);
+  };
+  
+  
+  const resetFilter = () => {
+    setSelectedTemperament("tod");
+    setSelectedName("asc");
+    dispatch(filterDogsByTemperament("tod"));
+    dispatch(filterDogsByName("asc"));
+    setCurrentFilter("tod");
+    setAppliedTemperamentFilters("");
+    setAppliedNameFilters("");
     setCurrentPage(1);
   };
-
-  const handleFilteredName = (e) => {
-    const newFilter = e.target.value;
-    setCurrentFilter(newFilter);
-    setAppliedNameFilters(newFilter);
-    dispatch(filterDogsByName(newFilter));
-    setCurrentPage(1);
-  }
   
-  
-  const resetFilter = (e) => {
-    e.preventDefault();
-    dispatch(getDogs());
-
-    setCurrentPage(1);
-  }
-
 
 
   
@@ -74,11 +90,14 @@ const Home = () => {
 
       <Filters 
         temperaments = { temperaments }
-        filterTemperament = { handleFilteredTemperaments }
-        filterName = { handleFilteredName }
+        filter = { handleFilter }
         reset = { resetFilter }
+        selectedTemperament = {selectedTemperament}
+        setSelectedTemperament = {setSelectedTemperament}
         filterByTemperament = { appliedTemperamentFilters }
         orderByAlphabetically = { appliedNameFilters }
+        selectedName = {selectedName}
+        setSelectedName = { setSelectedName }
       />
       
       <CardDogs 
