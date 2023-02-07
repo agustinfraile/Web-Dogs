@@ -1,16 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const Landing = () => {
   return (
     <div>
-        <h1>
-            Buenas!
-        </h1>
+        Buenas!
         <Link to='/home'>
-        <button>
-            ingresar
-        </button>
+            <button>Ingresar</button>
         </Link>
     </div>
   )

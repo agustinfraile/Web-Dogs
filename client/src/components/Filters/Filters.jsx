@@ -1,6 +1,16 @@
 import React from 'react';
 
-const Filters = ({ temperaments, filterTemperament, filterName, reset, filterByTemperament, orderByAlphabetically }) => {
+const Filters = ({ 
+        temperaments, 
+        selectedName, 
+        selectedTemperament, 
+        setSelectedTemperament, 
+        filter, 
+        reset, 
+        filterByTemperament, 
+        orderByAlphabetically, 
+        setSelectedName 
+    }) => {
 
 
   return (
@@ -8,7 +18,7 @@ const Filters = ({ temperaments, filterTemperament, filterName, reset, filterByT
 
         <div>
             <select
-                onChange={ filterTemperament }
+                value={selectedTemperament} onChange={e => setSelectedTemperament(e.target.value)}
             >
                 <option value="tod">Todos los temperamentos</option>
                 {
@@ -30,7 +40,7 @@ const Filters = ({ temperaments, filterTemperament, filterName, reset, filterByT
 
         <div>
             <select
-                onChange={ e => filterName(e) }
+                value={selectedName} onChange={e => setSelectedName(e.target.value)}
             >
                 <option value="asc">Ordenar de la A-Z</option>
                 <option value="des">Ordenar de la Z-A</option>
@@ -38,7 +48,7 @@ const Filters = ({ temperaments, filterTemperament, filterName, reset, filterByT
         </div>
 
         <div>
-            <button>Filtrar</button>
+            <button onClick={ filter }>Filtrar</button>
             <button onClick={ reset }>Limpiar filtros</button>
         </div>
 
