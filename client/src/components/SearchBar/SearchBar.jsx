@@ -24,7 +24,7 @@ const SearchBar = () => {
     <form className='form-search-cnt'>
         <input 
             type="text" 
-            placeholder='Buscar videojuego...'
+            placeholder='Buscar perro...'
             onChange={e => handleInputChange(e)}
         />
         <button 

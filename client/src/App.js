@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
 import Contact from './pages/Contact/Contact';
 import Create from './pages/Create/Create';
 import DogDetail from './pages/DogDetail/DogDetail';
@@ -20,6 +21,7 @@ function App() {
             <Route exact path='/contact' component={ Contact }/>
             <Route exact path='/dogs/:id' component={ DogDetail }/>
           </Switch>
+          <Footer />
       </BrowserRouter>
     </div>
   );
