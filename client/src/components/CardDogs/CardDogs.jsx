@@ -26,7 +26,7 @@ const CardDogs = ({ currentDogs }) => {
                     </Link>
                 )
             })
-        };  
+        }
     </div>
   );
 };

@@ -46,18 +46,33 @@ const rootReducer = (state = initialState, action) => {
             const dogsFilter = [...state.filteredDogs];
             let temperamentFiltered;
             let temperamentsDB;
+            let allTemperamentsFilter;
             if(action.payload === 'tod') {
                 temperamentFiltered = dogsFilter;   
             } else {
-                temperamentsDB = dogsFilter.map(dog => dog.temperaments);
-                if(dogsFilter.createdInDb) {
-                    console.log(temperamentsDB.name)
+                console.log(dogsFilter)
+                
+
+                let filteredDogsDB = dogsFilter.map(dogs => dogs.createdInDb);
+
+                console.log(filteredDogsDB)
+                // TODO: AQUI ME QUEDE
+                // filteredDogsDB.filter(dog == true)
+
+                if(filteredDogsDB) {
+                    temperamentsDB = dogsFilter.filter(dog => dog.temperaments.name.includes(action.payload));
+                    console.log(temperamentsDB)
+                    return temperamentsDB;
                 }
-                temperamentFiltered = dogsFilter.filter(dog => dog.temperament?.includes(action.payload))
+                
+
+                temperamentFiltered = dogsFilter.filter(dog => dog.temperament?.includes(action.payload));
+
+                allTemperamentsFilter = temperamentFiltered.concat(temperamentsDB);
             }
             return {
                 ...state,
-                dogs: temperamentFiltered,
+                dogs: allTemperamentsFilter,
             }
         case FILTER_BY_NAME:
             let filteredDogsOrder = state.dogs;
