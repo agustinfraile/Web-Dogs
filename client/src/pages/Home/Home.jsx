@@ -43,22 +43,6 @@ const Home = () => {
     dispatch( getTemperaments() );
   }, [dispatch]);
 
-  // const handleFilteredTemperaments = (e) => {
-  //   const newFilter = e.target.value;
-  //   dispatch(filterDogsByTemperament(newFilter));
-  //   setCurrentFilter(newFilter);
-  //   setAppliedTemperamentFilters(newFilter);
-  //   setCurrentPage(1);
-  // };
-
-  // const handleFilteredName = (e) => {
-  //   const newFilter = e.target.value;
-  //   setCurrentFilter(newFilter);
-  //   setAppliedNameFilters(newFilter);
-  //   dispatch(filterDogsByName(newFilter));
-  //   setCurrentPage(1);
-  // }
-
   const handleFilter = () => {
     dispatch(filterDogsByTemperament(selectedTemperament));
     dispatch(filterDogsByName(selectedName));
@@ -88,7 +72,7 @@ const Home = () => {
 
       <SearchBar />
 
-      <Filters 
+      {/* <Filters 
         temperaments = { temperaments }
         filter = { handleFilter }
         reset = { resetFilter }
@@ -98,7 +82,7 @@ const Home = () => {
         orderByAlphabetically = { appliedNameFilters }
         selectedName = {selectedName}
         setSelectedName = { setSelectedName }
-      />
+      /> */}
       
       <CardDogs 
         currentDogs = { currentDogs }  
