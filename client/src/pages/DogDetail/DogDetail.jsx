@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getDogDetail } from '../../redux/actions';
 
+import './DogDetail.css';
+
 const DogDetail = () => {
 
     const dispatch = useDispatch();
@@ -14,27 +16,35 @@ const DogDetail = () => {
     }, [dispatch, id]);
 
     return (
-        <div>
-            <h1>{dogDetail.name}</h1>
-            <img src={dogDetail.image} alt={dogDetail.name} />
-            <h3>{dogDetail.weight}kg</h3>
-            <h3>{dogDetail.height}cm</h3>
-            <h3>
-                {
-                    dogDetail.createdInDb 
-                    ?
+        <>
+            <div>
+                <h1>{dogDetail.name}</h1>
+                <img src={dogDetail.image} alt={dogDetail.name} />
+                <h3>{dogDetail.weight}kg</h3>
+                <h3>{dogDetail.height}cm</h3>
+                <h3>
+                    {
+                        dogDetail.createdInDb 
+                        ?
                         dogDetail.temperaments
                         ? dogDetail.temperament.name.join(" | ")
                         : ""
-                    :
+                        :
                         dogDetail.temperament
                         ? dogDetail.temperament.join(" | ")
                         : "" 
-                    
-                }
-            </h3>
-            <h4>id:{dogDetail.id}</h4>
-        </div>
+                        
+                    }
+                </h3>
+                <h4>id:{dogDetail.id}</h4>
+            </div>
+
+            <button
+              onClick={() => window.history.back()}
+            >
+              Volver
+            </button>
+        </>
     )
 }
 
