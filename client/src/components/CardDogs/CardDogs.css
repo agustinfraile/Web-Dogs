@@ -1,0 +1,17 @@
+.allCardsContainer {
+    /* background-color: bisque; */
+
+    width: 100%;
+    height: auto;
+}
+
+.allCards {
+    /* background-color: aquamarine; */
+
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
