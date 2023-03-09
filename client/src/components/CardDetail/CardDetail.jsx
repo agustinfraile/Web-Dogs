@@ -13,7 +13,7 @@ const CardDetail = ({ id, name, image, temperament, temperaments, weight, height
           <h1>{name}</h1>
         </div>
         
-        <div className='card-container_info'>
+        {/* <div className='card-container_info'>
           <h3>
             {
               createdInDb ?
@@ -23,7 +23,7 @@ const CardDetail = ({ id, name, image, temperament, temperaments, weight, height
           </h3>
           <h4>Altura (cm): {weight}</h4>
           <h5>Peso (kg): {height}</h5>
-        </div>
+        </div> */}
     </div>
   )
 }

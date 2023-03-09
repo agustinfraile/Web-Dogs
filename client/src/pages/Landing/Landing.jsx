@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import CardDogs from '../../components/CardDogs/CardDogs'
 import { getDogs } from '../../redux/actions';
 
+import './Landing.css';
+
 const Landing = () => {
   const dispatch = useDispatch();
   
@@ -18,7 +20,7 @@ const Landing = () => {
   }, [dispatch]);
   
   return (
-    <>
+    <div className='container-landing'>
         <div>
           <h1>
             La web app definitiva para conocer las razas de perros
@@ -43,7 +45,7 @@ const Landing = () => {
             </Link>
           </div>
         </div>
-    </>
+    </div>
   )
 }
 
