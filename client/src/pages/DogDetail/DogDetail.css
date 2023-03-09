@@ -3,8 +3,8 @@
 
     display: flex;
     width: 90%;
-    height: auto;
-    margin: 0 auto;
+    height: 65vh;
+    margin: 2em auto;
 }
 
 .detail-image {
@@ -73,5 +73,13 @@
     width: 16em;
     height: 4em;
     cursor: pointer;
+    box-shadow: 2px 2px 4px 2px #00000016;
+    transition: .6s;
+}
+
+.button-back button:hover {
+    transform: scale(120%);
+    transition: .6s;
+    box-shadow: 2px 2px 4px 2px #0000005f;
 }
 

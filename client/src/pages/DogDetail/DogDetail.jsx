@@ -24,6 +24,14 @@ const DogDetail = () => {
                         src={dogDetail.image} 
                         alt={dogDetail.name} 
                     />
+
+                    <div className='button-back'>
+                        <button
+                            onClick={() => window.history.back()}
+                        >
+                            Volver
+                        </button>
+                    </div>
                 </div>
 
                 <div className='detail-container'>
@@ -73,13 +81,7 @@ const DogDetail = () => {
                 </div>
             </div>
 
-            <div className='button-back'>
-                <button
-                onClick={() => window.history.back()}
-                >
-                Volver
-                </button>
-            </div>
+
         </>
     )
 }
