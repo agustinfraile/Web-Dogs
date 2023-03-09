@@ -1,0 +1,9 @@
+.paginate-container {
+    /* background-color: yellowgreen; */
+
+    display: flex;
+    justify-content: center;
+    margin: 1em auto;
+    width: 50%;
+    height: auto;
+}
