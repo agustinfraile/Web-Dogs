@@ -10,6 +10,13 @@
     justify-content: space-between;
     margin: 10px;
     box-shadow: 2px 2px 4px 2px #0000004d;
+    transition: .6s;
+}
+
+.card-container:hover {
+    transform: scale(105%);
+    transition: .6s;
+    box-shadow: 2px 2px 4px 2px #000000a0;
 }
 
 .card-container_img {
