@@ -141,95 +141,143 @@ const CreateDogForm = () => {
     }
 
     return (
-        <div>
-            <div>
+        <div className='create'>
+            <div className='create-title'>
                 <h2>Agregar una nueva raza</h2>
             </div>
 
-            <form onSubmit={ handleFormSubmit }>
-                {error && <p style={{color: "red"}}>{error}</p>}
-                <label>Raza:</label>
-                <input
-                    type="text" 
-                    name='name'
-                    value={input.name}
-                    onChange={ handleInputChange }
-                />
-                {errors.name && <p style={{color: "red"}}>{errors.name}</p>}
+            <form 
+                onSubmit={ handleFormSubmit }
+                className='create-form'
+            >
+                {
+                    error 
+                    && 
+                    <p style={{color: "white"}}>
+                        {error}
+                    </p>
+                }
 
-                <label>Altura:</label>
-                <span>Entre</span><input
-                    type="number" 
-                    name='minHeight'
-                    value={input.minHeight}
-                    onChange={ handleInputChange }
-                />
-                <span>y</span><input
-                    type="number" 
-                    name='maxHeight'
-                    value={input.maxHeight}
-                    onChange={ handleInputChange }
-                />
-
-
-                <label>Peso:</label>
-                <span>Entre</span><input
-                    type="number" 
-                    name='minWeight'
-                    value={input.minWeight}
-                    onChange={ handleInputChange }
-                />
-                <span>y</span><input
-                    type="number" 
-                    name='maxWeight'
-                    value={input.maxWeight}
-                    onChange={ handleInputChange }
-                />
-
-                <label>Expectativa de vida:</label>
-                <span>Entre</span><input
-                    type="number" 
-                    name='minLife_span'
-                    value={input.minLife_span}
-                    onChange={ handleInputChange }
-                />
-                <span>y</span><input
-                    type="number" 
-                    name='maxLife_span'
-                    value={input.maxLife_span}
-                    onChange={ handleInputChange }
-                />
-
-                <label>Temperamentos:</label>
-                <select 
-                    onChange={ handleSelectChange }
-                >
-
+                <div className='create-form_info'>
+                    <label>Raza:</label>
+                    <input
+                        type="text" 
+                        name='name'
+                        value={input.name}
+                        onChange={ handleInputChange }
+                    />
                     {
-                        temperaments.map(temp => (
-                            <option
-                                key={temp.id}
-                                value={temp.name}
-                            >
-                                {temp.name}
-                            </option>
-                        ))
+                        errors.name && 
+                        <p style={{color: "white"}}>
+                            {errors.name}
+                        </p>
                     }
-
-                </select>
-
-                <label>Imagen:</label>
-                <input
-                    type="url" 
-                    name='image'
-                    value={input.image}
-                    onChange={ handleInputChange }
-                />
-                
-                <div>
-                    <button type='submit'>Enviar</button>
-                    <button>Volver</button>
                 </div>
+                
+
+                <div className='create-form_info'>
+                    <label>Altura:</label>
+                    <span>Entre</span>
+                    <input
+                        type="number" 
+                        name='minHeight'
+                        value={input.minHeight}
+                        onChange={ handleInputChange }
+                    />
+                    <span>y</span>
+                    <input
+                        type="number" 
+                        name='maxHeight'
+                        value={input.maxHeight}
+                        onChange={ handleInputChange }
+                    />
+                </div>
+
+                <div className='create-form_info'>
+                    <label>Peso:</label>
+                    <span>Entre</span><input
+                        type="number" 
+                        name='minWeight'
+                        value={input.minWeight}
+                        onChange={ handleInputChange }
+                    />
+                    <span>y</span><input
+                        type="number" 
+                        name='maxWeight'
+                        value={input.maxWeight}
+                        onChange={ handleInputChange }
+                    />
+                </div>
+
+                <div className='create-form_info'>
+                    <label>Expectativa de vida:</label>
+                    <span>Entre</span><input
+                        type="number" 
+                        name='minLife_span'
+                        value={input.minLife_span}
+                        onChange={ handleInputChange }
+                    />
+                    <span>y</span><input
+                        type="number" 
+                        name='maxLife_span'
+                        value={input.maxLife_span}
+                        onChange={ handleInputChange }
+                    />
+                </div>
+                
+                <div className='create-form_info'>
+                    <label>Temperamentos:</label>
+                    <select 
+                        onChange={ handleSelectChange }
+                    >
+
+                        {
+                            temperaments.map(temp => (
+                                <option
+                                    key={temp.id}
+                                    value={temp.name}
+                                >
+                                    {temp.name}
+                                </option>
+                            ))
+                        }
+
+                    </select>
+                </div>
+
+                <div className='create-form_info'>
+                    <label>Imagen:</label>
+                    <input
+                        type="url" 
+                        name='image'
+                        value={input.image}
+                        onChange={ handleInputChange }
+                    />
+                </div>
+                
+                <div className='buttons-container'>
+                    
+                    <div className='buttons-container--btn'>
+                        <button
+                            type='submit'
+                            className='button-send_form'
+                        >
+                            Crear
+                        </button>
+                    </div>
+
+                    <div className='buttons-container--btn'>
+                        <button
+                            className='button-back_form'
+                        >
+                            Volver
+                        </button>
+                    </div>
+                    
+                </div>
+
+                
+
             </form>
         </div>
     );
