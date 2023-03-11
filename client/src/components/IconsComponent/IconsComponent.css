@@ -1,0 +1,31 @@
+.icons_cnt {
+    /* background-color: rgb(53, 53, 30); */
+    width: 100%;
+    height: 55vh;
+    
+}
+
+.icon-div {
+    width: 100%;
+    margin: 0 auto;
+    /* background-color: rgba(155, 37, 37, 0.533); */
+    display: flex;
+}
+
+.about-animation-div--icon {
+    /* background-color: darkgoldenrod; */
+    margin: 0 auto;
+}
+
+/* 800px para adelante */
+@media (min-width: 800px) {
+    .icons_cnt {
+        /* background-color: rgb(119, 75, 145); */
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        flex-direction: row;
+        padding-top: 4.5em;
+        justify-content: space-around;
+    }
+}

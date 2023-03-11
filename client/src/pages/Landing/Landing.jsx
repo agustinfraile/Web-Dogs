@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import CardDogs from '../../components/CardDogs/CardDogs'
 import { getDogs } from '../../redux/actions';
+import playDogs from '../../images/perro-jugando.jpg'
+
 
 import './Landing.css';
 
@@ -20,32 +22,50 @@ const Landing = () => {
   }, [dispatch]);
   
   return (
-    <div className='container-landing'>
-        <div>
-          <h1>
-            La web app definitiva para conocer las razas de perros
-          </h1>
-        </div>
-
-        <div>
-          <h3>
-            Explora la diversidad de razas caninas con estos perros destacados
-          </h3>
-
-          {/* CONTENEDOR PARA MOSTRAR 3 DOGS */}
-          <div>
-            <CardDogs 
-              key={dogs.id} 
-              currentDogs={ firstThreeDogs } 
-            />
+    <>
+      <div className='container-landing'>
+          <div className='container-landing_title'>
+            <h1>
+              La web app definitiva para conocer las razas de perros
+            </h1>
           </div>
+
+          <div className='container-landing_sub'>
+            <h3>
+              Explora la diversidad de razas caninas con estos perros destacados
+            </h3>
+          </div>
+
           <div>
-            <Link to='/home'>
-                <button>Mostrar todos</button>
-            </Link>
+            {/* CONTENEDOR PARA MOSTRAR 3 DOGS */}
+            <div>
+              <CardDogs 
+                key={dogs.id} 
+                currentDogs={ firstThreeDogs } 
+              />
+            </div>
+            <div>
+              <Link to='/home'>
+                  <button className='button-show'>Mostrar todos</button>
+              </Link>
+            </div>
+          </div>
+      </div>
+
+      <div className='container-landing-information'>
+        <div className="container-landing_info">
+          <div className="container-landing_info--text">
+            <h3>
+              Los perros son una de las especies más diversas del mundo animal.
+              Existen cientos de razas distintas, cada una con sus características físicas y psicológicas únicas. Conocer esta variedad de perros es importante por varias razones.
+            </h3>
+          </div>
+          <div className="container-landing_info--image">
+            <img src={playDogs} alt="Perro jugando" />
           </div>
         </div>
-    </div>
+      </div>
+    </>
   )
 }
 
