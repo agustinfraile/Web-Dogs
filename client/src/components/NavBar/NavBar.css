@@ -45,6 +45,7 @@
     cursor: pointer;
     box-shadow: 2px 2px 4px 2px #00000016;
     transition: .6s;
+    border-radius: 16px;
 }
 
 .navbar-container_list li:hover {
