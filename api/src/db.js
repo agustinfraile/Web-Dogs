@@ -1,3 +1,10 @@
+// Primero, se importan las librerías necesarias: dotenv para acceder a las variables de entorno, Sequelize para conectarse a la base de datos, fs para leer archivos en el sistema de archivos y path para manejar rutas de archivos.
+// Luego, se establecen las variables de entorno necesarias para conectarse a la base de datos (DB_USER, DB_PASSWORD, DB_HOST)
+// Se crea una nueva instancia de Sequelize con los detalles de la conexión a la base de datos.
+// Se leen todos los archivos en la carpeta 'models' y se requieren para ser utilizados como modelos en Sequelize.
+// Se establecen las relaciones entre los modelos importados (en este caso, una relación muchos a muchos entre la tabla Dog y Temperament)
+// Finalmente, se exportan los modelos importados y la conexión a la base de datos para ser utilizados en otras partes de la aplicación.
+
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
@@ -30,10 +37,12 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Dog } = sequelize.models;
+const { Dog, Temperament } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+Dog.belongsToMany(Temperament, {through: "dogs_temperament"});
+Temperament.belongsToMany(Dog, {through: "dogs_temperament"});
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
