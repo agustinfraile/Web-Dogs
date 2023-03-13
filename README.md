@@ -4,6 +4,8 @@
 
 Este proyecto es una aplicación web para explorar y conocer más sobre las diferentes razas de perros. Está desarrollado con React para el frontend, una base de datos PostgreSQL para almacenar los datos de las razas de perros, y un servidor con Express para manejar las peticiones al backend.
 
+[Link del proyecto](https://webdogsapp.netlify.app/)
+
 ## Funcionalidades
 - Ver una lista completa de todas las razas de perros.
 - Ver información detallada de cada raza de perro, incluyendo fotos y características físicas.
