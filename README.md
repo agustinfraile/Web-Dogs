@@ -1,5 +1,7 @@
 # Proyecto de Razas de Perros
 
+![Perro feliz](https://res.cloudinary.com/dmz6gyyoo/image/upload/v1678699749/to5kn2brlzuze2izzev9.png)
+
 Este proyecto es una aplicación web para explorar y conocer más sobre las diferentes razas de perros. Está desarrollado con React para el frontend, una base de datos PostgreSQL para almacenar los datos de las razas de perros, y un servidor con Express para manejar las peticiones al backend.
 
 ## Funcionalidades
