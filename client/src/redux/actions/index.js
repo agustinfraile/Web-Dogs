@@ -13,7 +13,7 @@ export const POST_DOG = 'POST_DOG';
 export const getDogs = () => {
     return async function(dispatch) {
         try {
-            const dogs = await axios.get("web-dogs-production.up.railway.app/dogs");
+            const dogs = await axios.get("/dogs");
             return dispatch({
                 type: GET_DOGS,
                 payload: dogs.data
@@ -27,7 +27,7 @@ export const getDogs = () => {
 export const getDogDetail = (id) => {
     return async function(dispatch) {
         try {
-            const dog = await axios.get(`web-dogs-production.up.railway.app/dogs/${id}`);
+            const dog = await axios.get(`/dogs/${id}`);
 
             return dispatch({
                 type: GET_DOG_DETAIL,
@@ -45,7 +45,7 @@ export const getDogDetail = (id) => {
 export const getTemperaments = () => {
     return async function (dispatch) {
         try {
-            const dogsTemperaments = await axios.get('web-dogs-production.up.railway.app/temperaments');
+            const dogsTemperaments = await axios.get('/temperaments');
 
             return dispatch({
                 type: GET_TEMPERAMENTS,
@@ -74,7 +74,7 @@ export const filterDogsByName = (payload) => {
 export const getNameDogs = (name) => {
     return async function (dispatch) {
         try {
-            const { data } = await axios.get(`web-dogs-production.up.railway.app/dogs?name=${name}`);
+            const { data } = await axios.get(`/dogs?name=${name}`);
             return dispatch({
                 type: GET_DOG_NAME,
                 payload: data
@@ -91,7 +91,7 @@ export const getNameDogs = (name) => {
 
 export const postDog = (payload) => {
     return async function (dispatch) { 
-        const data = await axios.post(`web-dogs-production.up.railway.app/dogs`, payload);
+        const data = await axios.post(`/dogs`, payload);
         return data;
     };
 };
