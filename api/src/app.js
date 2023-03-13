@@ -13,7 +13,7 @@ const server = express();
 server.name = 'API';
 
 var corsOptions= {
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:3000", 'https://webdogsapp.netlify.app/'],
 }
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
